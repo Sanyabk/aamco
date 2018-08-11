@@ -38,6 +38,14 @@ import { LogoComponent } from './components/common/logo/logo.component';
         LogoComponent
     ],
     imports: [
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        NgbModule.forRoot(),
         CommonModule,
         HttpModule,
         FormsModule,
