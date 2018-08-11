@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Aamco.Data;
+using Aamco.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aamco.API.Controllers
@@ -17,11 +19,19 @@ namespace Aamco.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            using (var context = _aamcoContextFactory.Create())
+            //using (var context = _aamcoContextFactory.Create())
+            //{
+            //    var vehicleMarks = context.VehicleMarks.ToList(); //query all marks from table
+            //    return Ok(vehicleMarks);
+            //}
+            var marks = new List<VehicleMark>()
             {
-                var vehicleMarks = context.VehicleMarks.ToList(); //query all marks from table
-                return Ok(vehicleMarks);
-            }
+                new VehicleMark {Id = 1, Name ="First"},
+                new VehicleMark {Id = 2, Name ="Second"},
+                new VehicleMark {Id = 3, Name ="Third"},
+            };
+
+            return Ok(marks);
         }
     }
 }

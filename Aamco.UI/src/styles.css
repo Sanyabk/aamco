@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.mat-form-field-infix {
+    border: none !important;
+}
+
+input.form-control {
+    border-color: rgb(29, 63, 111);
+}
+
+.app-main-color {
+    color: rgb(29, 63, 111) !important;
+}
+
+.app-secondary-color {
+    color: white;
+}
+
+.app-vertical-divider { 
+    border-left: 1px solid;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+
+.app-horizontal-divider {
+    border-top: 1px solid;
+    width: 100%;
+}

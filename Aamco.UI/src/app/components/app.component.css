@@ -1,0 +1,23 @@
+.app-footer {
+    background-color: rgb(29, 63, 111);
+    color: white;
+    padding: 30px 0;
+}
+
+.app-additional-options {
+    margin: 70px 0;
+}
+
+.app-vertical-word {
+    overflow: visible;
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    top: calc(50% - 20px);
+    left: -50%;
+    font-size: 130%;
+}
+
+.app-footer-divider {
+    padding: 25px 0;
+}

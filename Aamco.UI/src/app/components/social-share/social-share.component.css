@@ -1,0 +1,14 @@
+
+.app-social-share-button {
+    margin: 0 10px;
+    padding: 2px 20px;
+    color: white !important;
+}
+
+.app-social-share-facebook {
+    background-color: rgb(62, 89, 165);
+}
+
+.app-social-share-twitter {
+    background-color:rgb(27, 149, 224);
+}
