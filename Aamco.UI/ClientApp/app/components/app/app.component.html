@@ -1,10 +1,62 @@
-<div class='container-fluid'>
-    <div class='row'>
-        <div class='col-sm-3'>
+<div class="container-fluid">
 
-        </div>
-        <div class='col-sm-9 body-content'>
-            <router-outlet></router-outlet>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="float-left">
+                <app-logo></app-logo>
+            </div>
+            <div class="float-right">
+                <app-header></app-header>
+            </div>
         </div>
     </div>
+
+    <div class="row text-center">
+        <div class="col-8 offset-2">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+
+    <app-schedule-appointment></app-schedule-appointment>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+            <app-new-appointment></app-new-appointment>
+
+            <div class="row text-center app-additional-options" style="position: relative;">
+                <div class="col-6">
+                    <app-sign-up></app-sign-up>
+                </div>
+
+                <div class="app-vertical-divider app-main-color">
+                    <div class="app-vertical-word">Or</div>
+                </div>
+
+                <div class="col-6">
+                    <app-social-share></app-social-share>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row app-footer app-secondary-color">
+
+        <div class="col-2 offset-2">
+            <app-logo></app-logo>
+        </div>
+        <div class="col-6">
+            <app-categories></app-categories>
+        </div>
+
+        <div class="col-12 app-footer-divider">
+            <div class="app-horizontal-divider"></div>
+        </div>
+
+        <div class="col-12">
+            <app-footer></app-footer>
+        </div>
+
+    </div>
+
 </div>

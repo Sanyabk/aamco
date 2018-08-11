@@ -1,0 +1,7 @@
+<div *ngFor="let category of categories" class="category">
+  <p>{{category.name}}</p>
+
+  <ul>
+    <li *ngFor="let subcategory of category.subcategories" class="subcategory">{{subcategory.name}}</li>
+  </ul>
+</div>

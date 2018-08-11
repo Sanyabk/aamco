@@ -1,0 +1,9 @@
+.category {
+    display: inline-block;
+    width: 20%;
+    font-weight: bold;
+}
+
+.subcategory {
+    font-weight: normal;
+}

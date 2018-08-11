@@ -1,0 +1,33 @@
+.app-store-hours-days {
+    font-size: 110%;
+    color: grey;
+}
+
+.app-store-hours-time {
+    color: black;
+}
+
+.app-button {
+    padding: 5px 40px;
+}
+
+.mat-form-field-infix {
+    border: none !important;
+}
+
+.app-date-picker {
+    padding-top: 6px;
+}
+
+.app-form-message {
+    padding: 20px 0;
+}
+
+.app-choose-services {
+    margin-bottom: 0;
+}
+
+.app-choose-services-hint {
+    font-size: 70%;
+    vertical-align: top;
+}
