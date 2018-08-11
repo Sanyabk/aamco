@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aamco.Data", "Aamco.Data\Aa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aamco.Services", "Aamco.Services\Aamco.Services.csproj", "{3D4DC485-26D9-42C2-BEBA-35E73F0C7EF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aamco.UI", "Aamco.UI\Aamco.UI.csproj", "{48E51B96-887A-4020-833F-7D4EF4656209}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3D4DC485-26D9-42C2-BEBA-35E73F0C7EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D4DC485-26D9-42C2-BEBA-35E73F0C7EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D4DC485-26D9-42C2-BEBA-35E73F0C7EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E51B96-887A-4020-833F-7D4EF4656209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E51B96-887A-4020-833F-7D4EF4656209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E51B96-887A-4020-833F-7D4EF4656209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E51B96-887A-4020-833F-7D4EF4656209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
