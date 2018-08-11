@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aamco.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,11 +13,8 @@ namespace Aamco.Data
         {
         }
 
-        public AamcoContext() : this("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=EF6Usage;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-        {
-
-        }
-
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<VehicleMark> VehicleMarks { get; set; }
+        public DbSet<VehicleService> VehicleServices { get; set; }
     }
 }

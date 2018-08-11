@@ -26,8 +26,9 @@ namespace Aamco.API.Models
         public string Phone { get; set; }
 
         //vehicle info
-        public string VehicleModel { get; set; }
+        public int VehicleMarkId { get; set; }
         public int VehicleYear { get; set; }
-    
+
+        public IEnumerable<int> VehicleServicesIds { get; set; } = new List<int>(); //TODO: need?
     }
 }

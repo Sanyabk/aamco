@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AamcoContext.cs" />
+    <Compile Include="AamcoContextFactory.cs" />
     <Compile Include="Entities\Appointment.cs" />
+    <Compile Include="Entities\VehicleMark.cs" />
+    <Compile Include="Entities\VehicleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
