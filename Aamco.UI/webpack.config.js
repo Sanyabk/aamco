@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const AotPlugin = require('@ngtools/webpack').AotPlugin;
+//const AotPlugin = require('@ngtools/webpack').AotPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 
 module.exports = (env) => {
@@ -45,11 +45,11 @@ module.exports = (env) => {
         ] : [
             // Plugins that apply in production builds only
             new webpack.optimize.UglifyJsPlugin(),
-            new AotPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: path.join(__dirname, 'ClientApp/app/app.browser.module#AppModule'),
-                exclude: ['./**/*.server.ts']
-            })
+            //new AotPlugin({
+            //    tsConfigPath: './tsconfig.json',
+            //    entryModule: path.join(__dirname, 'ClientApp/app/app.browser.module#AppModule'),
+            //    exclude: ['./**/*.server.ts']
+            //})
         ])
     });
 
@@ -66,11 +66,11 @@ module.exports = (env) => {
             })
         ].concat(isDevBuild ? [] : [
             // Plugins that apply in production builds only
-            new AotPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: path.join(__dirname, 'ClientApp/app/app.server.module#AppModule'),
-                exclude: ['./**/*.browser.ts']
-            })
+            //new AotPlugin({
+            //    tsConfigPath: './tsconfig.json',
+            //    entryModule: path.join(__dirname, 'ClientApp/app/app.server.module#AppModule'),
+            //    exclude: ['./**/*.browser.ts']
+            //})
         ]),
         output: {
             libraryTarget: 'commonjs',
