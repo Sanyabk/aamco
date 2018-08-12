@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aamco.Data", "Aamco.Data\Aa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aamco.API", "Aamco.API\Aamco.API.csproj", "{352678D7-2627-43D3-B191-D1D46303FCB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aamco.Services", "Aamco.Services\Aamco.Services.csproj", "{1574CFC7-BCCE-461F-9826-AF8EE71C050F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{352678D7-2627-43D3-B191-D1D46303FCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{352678D7-2627-43D3-B191-D1D46303FCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{352678D7-2627-43D3-B191-D1D46303FCB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1574CFC7-BCCE-461F-9826-AF8EE71C050F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1574CFC7-BCCE-461F-9826-AF8EE71C050F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1574CFC7-BCCE-461F-9826-AF8EE71C050F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1574CFC7-BCCE-461F-9826-AF8EE71C050F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

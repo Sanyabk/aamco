@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aamco.Data;
+using Aamco.Services.Implementations;
+using Aamco.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,8 +30,11 @@ namespace Aamco.API
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddTransient<AamcoDbContextFactory>(_ => new AamcoDbContextFactory(connection));
-        }
 
+            services.AddTransient<IAppointmentService, AppointmentService>();
+            services.AddTransient<IVehicleMarkService, VehicleMarkService>();
+            services.AddTransient<IVehicleServiceService, VehicleServiceService>();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

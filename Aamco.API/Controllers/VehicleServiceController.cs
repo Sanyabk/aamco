@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Aamco.Data;
-using Aamco.Data.Entities;
+﻿using System.Linq;
+using Aamco.API.ViewModels;
+using Aamco.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aamco.API.Controllers
@@ -9,21 +8,23 @@ namespace Aamco.API.Controllers
     [Route("api/[controller]")]
     public class VehicleServiceController : Controller
     {
-        private readonly AamcoDbContextFactory _aamcoContextFactory;
+        private readonly IVehicleServiceService _vehicleServiceService;
 
-        public VehicleServiceController(AamcoDbContextFactory aamcoContextFactory)
+        public VehicleServiceController(IVehicleServiceService vehicleServiceService)
         {
-            _aamcoContextFactory = aamcoContextFactory;
+            _vehicleServiceService = vehicleServiceService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            using (var context = _aamcoContextFactory.Create())
-            {
-                var services = context.VehicleServices.ToList(); //query all services from table
-                return Ok(services);
-            }
+            var services = _vehicleServiceService.GetAll()
+                .Select(s => new VehicleServiceViewModel()
+                {
+                    Id = s.Id,
+                    Name = s.Name
+                });
+            return Ok(services);
         }
     }
 }
