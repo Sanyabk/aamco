@@ -14,7 +14,8 @@ interface AppointmentSuccessDialogData {
 })
 export class AppointmentSuccessDialogComponent {
   details: AppointmentDetails;
-
+  dateFormat: string = 'dd MMM yyyy, hh:mm a';
+  
   constructor(public dialogRef: MatDialogRef<AppointmentSuccessDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data: AppointmentSuccessDialogData) {
     this.details = data.details;

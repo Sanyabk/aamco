@@ -39,8 +39,6 @@ interface Appointment {
   vehicleServicesIds: Array<number>,
 }; 
 
-
-
 @Component({
   selector: 'app-new-appointment',
   templateUrl: './new-appointment.component.html',
@@ -52,7 +50,7 @@ export class NewAppointmentComponent implements OnInit {
 
   services: Array<VehicleService>;
   marks: Array<VehicleMark>;
-
+  today: Date = new Date();
   storeHours: Array<any> = [
     { id: 1, days: 'MON - WED', hours: '08:00 AM - 05:00 PM' },
     { id: 2, days: 'THU', hours: '08:00 AM - 04:00 PM' },
