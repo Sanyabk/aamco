@@ -32,6 +32,6 @@ namespace Aamco.Services.Models
         [Range(1900, 2018)] //can not pass DateTime.Now.Year
         public int VehicleYear { get; set; }
 
-        public IEnumerable<int> VehicleServicesIds { get; set; } = new List<int>(); //TODO: need?
+        public IEnumerable<int> VehicleServicesIds { get; set; }
     }
 }

@@ -20,6 +20,11 @@ namespace Aamco.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //configure many-to-many relationship
+            modelBuilder.Entity<Appointment>()
+                .HasMany(a => a.VehicleServices)
+                .WithMany();
+
             base.OnModelCreating(modelBuilder);
         }
     }

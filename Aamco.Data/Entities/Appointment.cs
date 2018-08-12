@@ -31,7 +31,7 @@ namespace Aamco.Data.Entities
         public VehicleMark VehicleMark { get; set; }
         public int VehicleYear { get; set; }
 
-        public IEnumerable<VehicleService> VehicleServices { get; set; } = new List<VehicleService>();
+        public ICollection<VehicleService> VehicleServices { get; set; } = new List<VehicleService>();
 
         //internal info
         [Column(TypeName = "datetime2")]
