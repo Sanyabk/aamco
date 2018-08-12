@@ -10,9 +10,9 @@ namespace Aamco.API.Controllers
     [Route("api/[controller]")]
     public class AppointmentController : Controller
     {
-        private readonly AamcoContextFactory _aamcoContextFactory;
+        private readonly AamcoDbContextFactory _aamcoContextFactory;
 
-        public AppointmentController(AamcoContextFactory aamcoContextFactory)
+        public AppointmentController(AamcoDbContextFactory aamcoContextFactory)
         {
             _aamcoContextFactory = aamcoContextFactory;
         }
@@ -26,30 +26,28 @@ namespace Aamco.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]AppointmentModel model)
         {
-            //if (model == null) return BadRequest("Appointment can not be null");
-            //if (!ModelState.IsValid)
-            //{
-            //    //there may be filling with errors
-            //    return BadRequest();
-            //}
-            if (model == null) model = new AppointmentModel();
+            if (model == null) return BadRequest("Appointment can not be null");
+            if (model.StartsOn > model.EndsOn)
+                ModelState.AddModelError("startsOn", $"startsOn can not be greater than endsOn");
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             using (var context = _aamcoContextFactory.Create())
             {
-                var vehicleMark = context.VehicleMarks.FirstOrDefault(m => m.Id == model.VehicleMarkId);
+                //may not check for correctness due to optionality of VehicleServicesIds and VehicleMarkId values
                 var vehicleServices = context.VehicleServices.Where(s => model.VehicleServicesIds.Contains(s.Id)).ToList();
-                if (vehicleMark == null || !vehicleServices.Any())
-                {
-                    return BadRequest();
-                }
+                var vehicleMark = context.VehicleMarks.FirstOrDefault(m => m.Id == model.VehicleMarkId);
 
                 var appointment = new Appointment()
                 {
                     StartsOn = model.StartsOn,
                     EndsOn = model.EndsOn,
                     FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = "john.doe@gmail.com",
+                    SecondName = model.SecondName,
+                    Email = model.Email,
                     Phone = model.Phone,
                     VehicleMark = vehicleMark,
                     VehicleServices = vehicleServices,

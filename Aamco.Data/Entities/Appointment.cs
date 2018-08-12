@@ -12,15 +12,18 @@ namespace Aamco.Data.Entities
         public int Id { get; set; }
         
         //time info
-        [Required, Column(TypeName = "datetime2")]
+        [Required]
+        [Column(TypeName = "datetime2")]
         public DateTime StartsOn { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime? EndsOn { get; set; }
 
         //personal info
+        [Required]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+
+        public string SecondName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
 

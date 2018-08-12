@@ -18,15 +18,19 @@ namespace Aamco.API.Models
         //personal info
         [Required]
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string SecondName { get; set; }
 
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        //[Phone]
         public string Phone { get; set; }
 
         //vehicle info
         public int VehicleMarkId { get; set; }
+
+        [Range(1900, 2018)] //can not pass DateTime.Now.Year
         public int VehicleYear { get; set; }
 
         public IEnumerable<int> VehicleServicesIds { get; set; } = new List<int>(); //TODO: need?

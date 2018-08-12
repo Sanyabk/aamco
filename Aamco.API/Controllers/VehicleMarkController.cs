@@ -9,9 +9,9 @@ namespace Aamco.API.Controllers
     [Route("api/[controller]")]
     public class VehicleMarkController : Controller
     {
-        private readonly AamcoContextFactory _aamcoContextFactory;
+        private readonly AamcoDbContextFactory _aamcoContextFactory;
 
-        public VehicleMarkController(AamcoContextFactory aamcoContextFactory)
+        public VehicleMarkController(AamcoDbContextFactory aamcoContextFactory)
         {
             _aamcoContextFactory = aamcoContextFactory;
         }
@@ -19,19 +19,11 @@ namespace Aamco.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //using (var context = _aamcoContextFactory.Create())
-            //{
-            //    var vehicleMarks = context.VehicleMarks.ToList(); //query all marks from table
-            //    return Ok(vehicleMarks);
-            //}
-            var marks = new List<VehicleMark>()
+            using (var context = _aamcoContextFactory.Create())
             {
-                new VehicleMark {Id = 1, Name ="First"},
-                new VehicleMark {Id = 2, Name ="Second"},
-                new VehicleMark {Id = 3, Name ="Third"},
-            };
-
-            return Ok(marks);
+                var vehicleMarks = context.VehicleMarks.ToList(); //query all marks from table
+                return Ok(vehicleMarks);
+            }
         }
     }
 }

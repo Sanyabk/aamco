@@ -27,7 +27,7 @@ namespace Aamco.API
             services.AddMvc();
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddTransient<AamcoContextFactory>(_ => new AamcoContextFactory(connection));
+            services.AddTransient<AamcoDbContextFactory>(_ => new AamcoDbContextFactory(connection));
         }
 
 
@@ -39,7 +39,7 @@ namespace Aamco.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
             app.UseMvc();
         }

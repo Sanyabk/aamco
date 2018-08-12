@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 
 namespace Aamco.Data
 {
-    public class AamcoContext : DbContext
+    public class AamcoDbContext : DbContext
     {
-        public AamcoContext(string connString) : base(connString)
+        public AamcoDbContext(string connString) : base(connString)
         {
+            Database.SetInitializer(new AamcoDbInitializer());
         }
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<VehicleMark> VehicleMarks { get; set; }
         public DbSet<VehicleService> VehicleServices { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
