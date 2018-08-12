@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material';
+import { AppointmentSuccessDialogComponent } from '../common/appointment-success-dialog/appointment-success-dialog.component';
+import { AppointmentDetails } from '../common/appointment-details';
 
 interface DateTime {
   date: Date;
@@ -20,6 +23,24 @@ interface VehicleMark {
   name: string;
 }
 
+interface Appointment {
+  id?: number,
+
+  startsOn: Date,
+  endsOn: Date,
+
+  firstName: string,
+  secondName: string,
+  email: string,
+  phone: string,
+
+  vehicleMarkId: number,
+  vehicleYear: number,
+  vehicleServicesIds: Array<number>,
+}; 
+
+
+
 @Component({
   selector: 'app-new-appointment',
   templateUrl: './new-appointment.component.html',
@@ -30,7 +51,6 @@ export class NewAppointmentComponent implements OnInit {
   API_BASE_URL: string = 'http://localhost:50950';
 
   services: Array<VehicleService>;
-
   marks: Array<VehicleMark>;
 
   storeHours: Array<any> = [
@@ -45,7 +65,7 @@ export class NewAppointmentComponent implements OnInit {
 
   vehicle: {
     year: number,
-    name: string
+    markId: number,
   };
 
   personalInfo: {
@@ -55,8 +75,9 @@ export class NewAppointmentComponent implements OnInit {
     phone: string,
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private dialog: MatDialog) {
 
+    //fill form with default values
     this.resetForm();
 
     http.get<Array<VehicleMark>>(`${this.API_BASE_URL}/api/vehiclemark`)
@@ -91,25 +112,33 @@ export class NewAppointmentComponent implements OnInit {
     const endsOn = this.convertDateTime(this.end);
     const vehicleServicesIds = this.services.filter(s => s.checked).map(s => s.id);
 
-    const appointment = {
+    const appointment : Appointment = {
       startsOn: startsOn,
       endsOn: endsOn,
-      
+
       firstName: this.personalInfo.firstName,
       secondName: this.personalInfo.secondName,
       email: this.personalInfo.email,
-      phone: this.personalInfo.email,
+      phone: this.personalInfo.phone,
 
-      vehicleMarkId: this.vehicle.name,
+      vehicleMarkId: this.vehicle.markId,
       vehicleYear: this.vehicle.year,
       vehicleServicesIds: vehicleServicesIds,
     };
     console.log(this, appointment);
-    this.http.post(`${this.API_BASE_URL}/api/appointment`, appointment)
-      .subscribe(createdAppointmentId => {
-        console.log('appointment was created', createdAppointmentId);
-        this.resetForm();
-      }, this.handleError);
+    this.http.post<AppointmentDetails>(`${this.API_BASE_URL}/api/appointment`, appointment)
+      .subscribe(details => {
+        //open success appointment dialog
+        const dialogRef = this.dialog.open(AppointmentSuccessDialogComponent, {
+          width: '450px',
+          data: { details }
+        });
+
+        //reset form after success dialog is closed
+        dialogRef.afterClosed().subscribe(result => {
+          this.resetForm();
+        });
+     }, this.handleError);
   }
   handleError(error) {
     console.log(error);
@@ -135,7 +164,7 @@ export class NewAppointmentComponent implements OnInit {
     //fill checked property for every service
     if (this.services) this.services.forEach(s => s.checked = false);
 
-    this.vehicle = { year: undefined, name: '' };
+    this.vehicle = { year: undefined, markId: undefined };
     this.personalInfo = { firstName: '', secondName: '', email: '', phone: '' };
   }
 }

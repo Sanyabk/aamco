@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +18,7 @@ import { SocialShareComponent } from './social-share/social-share.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SocialContactsComponent } from './social-contacts/social-contacts.component';
 import { LogoComponent } from './common/logo/logo.component';
+import { AppointmentSuccessDialogComponent } from './common/appointment-success-dialog/appointment-success-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LogoComponent } from './common/logo/logo.component';
     SocialShareComponent,
     CategoriesComponent,
     SocialContactsComponent,
-    LogoComponent
+    LogoComponent,
+    AppointmentSuccessDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +45,13 @@ import { LogoComponent } from './common/logo/logo.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatDialogModule,
     NgbModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AppointmentSuccessDialogComponent,
+  ]
 })
 export class AppModule { }

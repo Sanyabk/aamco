@@ -59,7 +59,12 @@ namespace Aamco.API.Controllers
                 //if did write rows to database
                 if (context.SaveChanges() > 0)
                 {
-                    return Ok(appointment.Id);
+                    var details = new AppointmentDetailsModel()
+                    {
+                        StartsOn = appointment.StartsOn,
+                        EndsOn = appointment.EndsOn.Value
+                    };
+                    return Ok(details);
                 }
                 else
                 {

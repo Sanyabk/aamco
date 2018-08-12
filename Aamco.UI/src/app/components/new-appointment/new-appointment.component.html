@@ -71,7 +71,7 @@
       </div>
       <div class="col-6">
         <mat-form-field>
-          <mat-select [(value)]="vehicle.name" placeholder="SELECT YOUR CAR">
+          <mat-select [(value)]="vehicle.markId" placeholder="SELECT YOUR CAR">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let mark of marks" value="{{mark.id}}">{{mark.name}}</mat-option>
           </mat-select>
