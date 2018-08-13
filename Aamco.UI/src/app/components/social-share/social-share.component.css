@@ -5,6 +5,12 @@
     color: white !important;
 }
 
+.app-social-share-button img {
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+}
+
 .app-social-share-facebook {
     background-color: rgb(62, 89, 165);
 }

@@ -16,7 +16,6 @@ import { NewAppointmentComponent } from './new-appointment/new-appointment.compo
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SocialShareComponent } from './social-share/social-share.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { SocialContactsComponent } from './social-contacts/social-contacts.component';
 import { LogoComponent } from './common/logo/logo.component';
 import { AppointmentSuccessDialogComponent } from './common/appointment-success-dialog/appointment-success-dialog.component';
 
@@ -31,7 +30,6 @@ import { AppointmentSuccessDialogComponent } from './common/appointment-success-
     SignUpComponent,
     SocialShareComponent,
     CategoriesComponent,
-    SocialContactsComponent,
     LogoComponent,
     AppointmentSuccessDialogComponent,
   ],
