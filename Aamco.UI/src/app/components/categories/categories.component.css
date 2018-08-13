@@ -8,6 +8,7 @@
     font-weight: normal;
 }
 
+/* for small devices */
 @media (max-width: 576px) { 
     .category {
         display: block;
@@ -17,5 +18,9 @@
     .category ul li {
         display: inline-block;
         padding: 0 10px;
+    }
+
+    .category p {
+        margin-bottom: 0;
     }
 }

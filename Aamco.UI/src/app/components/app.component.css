@@ -5,7 +5,7 @@
 }
 
 .app-additional-options {
-    margin: 70px 0;
+    margin: 30px 0;
 }
 
 .app-vertical-word {
@@ -20,4 +20,11 @@
 
 .app-footer-divider {
     padding: 25px 0;
+}
+
+/* for small devices */
+@media (max-width: 576px) { 
+    .app-footer-logo {
+        margin-bottom: 30px;
+    }
 }

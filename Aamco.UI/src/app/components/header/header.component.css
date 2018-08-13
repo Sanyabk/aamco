@@ -11,6 +11,7 @@
     padding-right: 0;
 }
 
+/* for small devices */
 @media (max-width: 576px) { 
     li.nav-item {
         width: 100%;
