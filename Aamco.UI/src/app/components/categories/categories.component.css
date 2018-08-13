@@ -7,3 +7,15 @@
 .subcategory {
     font-weight: normal;
 }
+
+@media (max-width: 576px) { 
+    .category {
+        display: block;
+        width: 100%;
+    }
+
+    .category ul li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+}
