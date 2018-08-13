@@ -8,4 +8,11 @@
 
 .app-nav {
     font-size: 14px;
+    padding-right: 0;
+}
+
+@media (max-width: 576px) { 
+    li.nav-item {
+        width: 100%;
+    }
 }

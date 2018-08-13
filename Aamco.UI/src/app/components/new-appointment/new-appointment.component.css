@@ -15,6 +15,10 @@
     border: none !important;
 }
 
+.mat-form-field {
+    width: 100%;
+}
+
 .app-date-picker {
     padding-top: 6px;
 }
