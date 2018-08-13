@@ -20,10 +20,15 @@ namespace Aamco.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Appointment>().ToTable("ak_Appointment");
+            modelBuilder.Entity<VehicleMark>().ToTable("ak_VehicleMarks");
+            modelBuilder.Entity<VehicleService>().ToTable("ak_VehicleServices");
+
             //configure many-to-many relationship
             modelBuilder.Entity<Appointment>()
                 .HasMany(a => a.VehicleServices)
-                .WithMany();
+                .WithMany()
+                .Map(avs => avs.ToTable("ak_Appointment_to_ak_VehicleServices"));
 
             base.OnModelCreating(modelBuilder);
         }
